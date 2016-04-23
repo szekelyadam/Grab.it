@@ -18,6 +18,11 @@
 		218681851CCBA66E000040D7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681841CCBA66E000040D7 /* City.swift */; };
 		218681871CCBA6DE000040D7 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681861CCBA6DE000040D7 /* County.swift */; };
 		218681891CCBA70B000040D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681881CCBA70B000040D7 /* User.swift */; };
+		2186818B1CCBB004000040D7 /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818A1CCBB004000040D7 /* AdTableViewCell.swift */; };
+		2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */; };
+		2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */; };
+		218681911CCBE4E7000040D7 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681901CCBE4E7000040D7 /* AdViewController.swift */; };
+		218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681921CCBE541000040D7 /* CategoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		218681841CCBA66E000040D7 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		218681861CCBA6DE000040D7 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = County.swift; sourceTree = "<group>"; };
 		218681881CCBA70B000040D7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2186818A1CCBB004000040D7 /* AdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
+		2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
+		2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		218681901CCBE4E7000040D7 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
+		218681921CCBE541000040D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,11 @@
 				218681841CCBA66E000040D7 /* City.swift */,
 				218681861CCBA6DE000040D7 /* County.swift */,
 				218681881CCBA70B000040D7 /* User.swift */,
+				2186818A1CCBB004000040D7 /* AdTableViewCell.swift */,
+				2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */,
+				2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */,
+				218681901CCBE4E7000040D7 /* AdViewController.swift */,
+				218681921CCBE541000040D7 /* CategoryTableViewController.swift */,
 			);
 			path = Grab.it;
 			sourceTree = "<group>";
@@ -153,14 +168,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2186818B1CCBB004000040D7 /* AdTableViewCell.swift in Sources */,
 				214405C01CC589FC00D00992 /* Ad.swift in Sources */,
 				218681831CCBA4DA000040D7 /* Category.swift in Sources */,
+				2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */,
 				218681871CCBA6DE000040D7 /* County.swift in Sources */,
 				218681851CCBA66E000040D7 /* City.swift in Sources */,
+				2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */,
 				218681891CCBA70B000040D7 /* User.swift in Sources */,
 				214405AD1CC5875400D00992 /* ViewController.swift in Sources */,
+				218681911CCBE4E7000040D7 /* AdViewController.swift in Sources */,
 				214405B31CC5875400D00992 /* Grab_it.xcdatamodeld in Sources */,
 				214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */,
+				218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
