@@ -9,15 +9,36 @@
 import UIKit
 import Kingfisher
 import FontAwesome_swift
+import Alamofire
+import SwiftyJSON
 
 class BrowseTableViewController: UITableViewController {
 
-    var dataManager: DataManager?
+    var ads = [Ad]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataManager = AppDelegate.sharedAppDelegate().dataManager
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        let url = "http://grabit-szekelyadam.rhcloud.com"
+        Alamofire.request(.GET, url + "/api/ads").responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let res = response.result.value {
+                    let json = JSON(res)
+                    for (_,subJson):(String, JSON) in json {
+                        let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)/public/\(subJson["_id"].string!).jpg", cityId: subJson["city_id"].int!, userId: subJson["user_id"].string!, categoryId: subJson["category_id"].string!, created: NSDate(), updated: NSDate())
+                        self.ads.append(ad)
+                    }
+                    self.tableView.reloadData()
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                }
+            case .Failure(let error):
+                print(error)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,13 +53,13 @@ class BrowseTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager!.ads.count
+        return self.ads.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: AdTableViewCell = tableView.dequeueReusableCellWithIdentifier("BrowseTableViewCell", forIndexPath: indexPath) as! AdTableViewCell
         
-        let adData = dataManager!.ads[indexPath.row] as Ad
+        let adData = self.ads[indexPath.row]
         
         cell.adImageView.kf_setImageWithURL(NSURL(string: adData.imageUrl)!)
         cell.adNameLabel.text = adData.title
@@ -90,7 +111,7 @@ class BrowseTableViewController: UITableViewController {
         if segue.identifier == "AdDetailsSegue" {
             let vc = segue.destinationViewController as! AdViewController
             let row = tableView.indexPathForSelectedRow?.row
-            let ad = dataManager!.ads[row!] as Ad
+            let ad = self.ads[row!]
             vc.ad = ad
             vc.title = ad.title
         }

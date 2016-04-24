@@ -163,7 +163,13 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="SLc-hI-pEI"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="130" id="kir-XU-bWL"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kir-XU-bWL"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ad name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1L-qE-vYD">
                                 <rect key="frame" x="20" y="224" width="204" height="21"/>
