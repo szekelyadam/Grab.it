@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AdViewController: UITableViewController {
 
@@ -19,14 +20,12 @@ class AdViewController: UITableViewController {
     @IBOutlet weak var adPriceLabel: UILabel!
     @IBOutlet weak var adDetailsTextView: UITextView!
     
+    var dataManager: DataManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        dataManager = AppDelegate.sharedAppDelegate().dataManager
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,24 +36,24 @@ class AdViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return dataManager!.ads.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell: AdTableViewCell = tableView.dequeueReusableCellWithIdentifier("AdTableViewCell", forIndexPath: indexPath) as! AdTableViewCell
+        
+        let adData = dataManager!.ads[indexPath.row] as Ad
 
-        // Configure the cell...
+        cell.adNameLabel.text = adData.title
+        
+        cell.adPriceLabel.text = String(adData.price) + "Ft"
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

@@ -21,11 +21,13 @@
 		2186818B1CCBB004000040D7 /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818A1CCBB004000040D7 /* AdTableViewCell.swift */; };
 		2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */; };
 		2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */; };
-		218681911CCBE4E7000040D7 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681901CCBE4E7000040D7 /* AdViewController.swift */; };
 		218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681921CCBE541000040D7 /* CategoryTableViewController.swift */; };
+		21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */; };
+		2A885205B6447F10BAA818D9 /* Pods_Grab_it.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC7362B6901326BD080591E /* Pods_Grab_it.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0003934024A3707B6063F534 /* Pods-Grab.it.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grab.it.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it.release.xcconfig"; sourceTree = "<group>"; };
 		214405A71CC5875400D00992 /* Grab.it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grab.it.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214405AA1CC5875400D00992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		214405AC1CC5875400D00992 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,8 +44,10 @@
 		2186818A1CCBB004000040D7 /* AdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
 		2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
 		2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		218681901CCBE4E7000040D7 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		218681921CCBE541000040D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2FC7362B6901326BD080591E /* Pods_Grab_it.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grab_it.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5555563D3EF02A1FA032A493 /* Pods-Grab.it.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grab.it.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +55,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A885205B6447F10BAA818D9 /* Pods_Grab_it.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AFAB625ACDABCAD5D72B449 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5555563D3EF02A1FA032A493 /* Pods-Grab.it.debug.xcconfig */,
+				0003934024A3707B6063F534 /* Pods-Grab.it.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2144059E1CC5875400D00992 = {
 			isa = PBXGroup;
 			children = (
 				214405A91CC5875400D00992 /* Grab.it */,
 				214405A81CC5875400D00992 /* Products */,
+				0AFAB625ACDABCAD5D72B449 /* Pods */,
+				8D0B2F87C85EE7F5FBD1CBAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,10 +107,18 @@
 				2186818A1CCBB004000040D7 /* AdTableViewCell.swift */,
 				2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */,
 				2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */,
-				218681901CCBE4E7000040D7 /* AdViewController.swift */,
 				218681921CCBE541000040D7 /* CategoryTableViewController.swift */,
+				21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */,
 			);
 			path = Grab.it;
+			sourceTree = "<group>";
+		};
+		8D0B2F87C85EE7F5FBD1CBAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FC7362B6901326BD080591E /* Pods_Grab_it.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 214405BC1CC5875400D00992 /* Build configuration list for PBXNativeTarget "Grab.it" */;
 			buildPhases = (
+				2DEC427FF2A0F20B8C6A66EB /* Check Pods Manifest.lock */,
 				214405A31CC5875400D00992 /* Sources */,
 				214405A41CC5875400D00992 /* Frameworks */,
 				214405A51CC5875400D00992 /* Resources */,
+				18B3434076A0DC5BAA4EB460 /* Embed Pods Frameworks */,
+				6D50032E0FDD26D47924C0B5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +190,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18B3434076A0DC5BAA4EB460 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DEC427FF2A0F20B8C6A66EB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D50032E0FDD26D47924C0B5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		214405A31CC5875400D00992 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -171,13 +246,13 @@
 				2186818B1CCBB004000040D7 /* AdTableViewCell.swift in Sources */,
 				214405C01CC589FC00D00992 /* Ad.swift in Sources */,
 				218681831CCBA4DA000040D7 /* Category.swift in Sources */,
+				21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */,
 				2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */,
 				218681871CCBA6DE000040D7 /* County.swift in Sources */,
 				218681851CCBA66E000040D7 /* City.swift in Sources */,
 				2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */,
 				218681891CCBA70B000040D7 /* User.swift in Sources */,
 				214405AD1CC5875400D00992 /* ViewController.swift in Sources */,
-				218681911CCBE4E7000040D7 /* AdViewController.swift in Sources */,
 				214405B31CC5875400D00992 /* Grab_it.xcdatamodeld in Sources */,
 				214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */,
 				218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */,
@@ -291,6 +366,7 @@
 		};
 		214405BD1CC5875400D00992 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5555563D3EF02A1FA032A493 /* Pods-Grab.it.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Grab.it/Info.plist;
@@ -302,6 +378,7 @@
 		};
 		214405BE1CC5875400D00992 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0003934024A3707B6063F534 /* Pods-Grab.it.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Grab.it/Info.plist;

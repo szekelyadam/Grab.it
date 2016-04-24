@@ -10,13 +10,13 @@ import UIKit
 
 class City: NSObject {
     var id: Int
-    var county_id: Int
+    var countyId: Int
     var zip: Int
     var name: String
     
-    init(id: Int, county_id: Int, zip: Int, name: String) {
+    init(id: Int, countyId: Int, zip: Int, name: String) {
         self.id = id
-        self.county_id = county_id
+        self.countyId = countyId
         self.zip = zip
         self.name = name
     }
