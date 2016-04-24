@@ -1,49 +1,54 @@
 //
-//  BrowseTableViewController.swift
+//  SubCategoryTableViewController.swift
 //  Grab.it
 //
-//  Created by Ádám Székely on 23/04/16.
+//  Created by Ádám Székely on 24/04/16.
 //  Copyright © 2016 Ádám Székely. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
-import FontAwesome_swift
 
-class BrowseTableViewController: UITableViewController {
-
-    var dataManager: DataManager?
+class SubCategoryTableViewController: UITableViewController {
     
+    var dataManager: DataManager?
+    var mainCategory: Category?
+    var subCategories: [Category]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataManager = AppDelegate.sharedAppDelegate().dataManager
+        subCategories = [Category]()
+        
+        for category in dataManager!.subCategories {
+            if category.parentId == mainCategory!.id {
+                subCategories?.append(category)
+            }
+        }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager!.ads.count
+        return subCategories!.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: AdTableViewCell = tableView.dequeueReusableCellWithIdentifier("BrowseTableViewCell", forIndexPath: indexPath) as! AdTableViewCell
+        let cell: CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("SubCategoryTableViewCell", forIndexPath: indexPath) as! CategoryTableViewCell
         
-        let adData = dataManager!.ads[indexPath.row] as Ad
+        let categoryData = subCategories![indexPath.row] as Category
         
-        cell.adImageView.kf_setImageWithURL(NSURL(string: adData.imageUrl)!)
-        cell.adNameLabel.text = adData.title
-        cell.adLocationLabel.text = adData.getCityName()
-        cell.adPriceLabel.text = String(adData.price) + "Ft"
+        cell.categoryIconLabel.font = UIFont.fontAwesomeOfSize(17)
+        cell.categoryIconLabel.text = String.fontAwesomeIconWithCode(categoryData.icon)
+        cell.categoryNameLabel.text = categoryData.name
         
         return cell
     }
@@ -83,18 +88,14 @@ class BrowseTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "AdDetailsSegue" {
-            let vc = segue.destinationViewController as! AdViewController
-            let row = tableView.indexPathForSelectedRow?.row
-            let ad = dataManager!.ads[row!] as Ad
-            vc.ad = ad
-            vc.title = ad.title
-        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
- 
+    */
 
 }

@@ -6,5 +6,6 @@ use_frameworks!
 
 target 'Grab.it' do
     pod 'Kingfisher', '~> 2.3'
+    pod 'FontAwesome.swift'
 end
 

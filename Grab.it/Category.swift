@@ -11,13 +11,19 @@ import UIKit
 class Category: NSObject {
     var id: String
     var name: String
-    var parent_id: String
-    var icon: UIImage?
+    var parentId: String?
+    var icon: String
     
-    init(id: String, name: String, parent_id: String, icon: UIImage) {
+    init(id: String, name: String, parentId: String, icon: String) {
         self.id = id
         self.name = name
-        self.parent_id = parent_id
+        self.parentId = parentId
+        self.icon = icon
+    }
+    
+    init(id: String, name: String, icon: String) {
+        self.id = id
+        self.name = name
         self.icon = icon
     }
 }
