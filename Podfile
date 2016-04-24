@@ -7,5 +7,7 @@ use_frameworks!
 target 'Grab.it' do
     pod 'Kingfisher', '~> 2.3'
     pod 'FontAwesome.swift'
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'Alamofire', '~> 3.3'
 end
 

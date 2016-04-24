@@ -7,22 +7,35 @@
 //
 
 import UIKit
+import FontAwesome_swift
+import Alamofire
+import SwiftyJSON
 
 class SubCategoryTableViewController: UITableViewController {
     
-    var dataManager: DataManager?
     var mainCategory: Category?
-    var subCategories: [Category]?
+    var subCategories = [Category]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataManager = AppDelegate.sharedAppDelegate().dataManager
-        subCategories = [Category]()
-        
-        for category in dataManager!.subCategories {
-            if category.parentId == mainCategory!.id {
-                subCategories?.append(category)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        let url = "http://grabit-szekelyadam.rhcloud.com/api/categories/\(mainCategory!.id)/subcategories"
+        Alamofire.request(.GET, url).responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let res = response.result.value {
+                    let json = JSON(res)
+                    for (_,subJson):(String, JSON) in json {
+                        let c = Category(id: subJson["_id"].string!, name: subJson["name"].string!, parentId: subJson["parent_id"].string!, icon: subJson["icon"].string!)
+                        self.subCategories.append(c)
+                    }
+                    self.tableView.reloadData()
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                }
+            case .Failure(let error):
+                print(error)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         }
     }
@@ -38,13 +51,13 @@ class SubCategoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subCategories!.count
+        return self.subCategories.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("SubCategoryTableViewCell", forIndexPath: indexPath) as! CategoryTableViewCell
         
-        let categoryData = subCategories![indexPath.row] as Category
+        let categoryData = self.subCategories[indexPath.row]
         
         cell.categoryIconLabel.font = UIFont.fontAwesomeOfSize(17)
         cell.categoryIconLabel.text = String.fontAwesomeIconWithCode(categoryData.icon)

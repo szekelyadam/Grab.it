@@ -8,15 +8,35 @@
 
 import UIKit
 import FontAwesome_swift
+import Alamofire
+import SwiftyJSON
 
 class CategoryTableViewController: UITableViewController {
     
-    var dataManager: DataManager?
+    var categories = [Category]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dataManager = AppDelegate.sharedAppDelegate().dataManager
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        Alamofire.request(.GET, "http://grabit-szekelyadam.rhcloud.com/api/categories").responseJSON { response in
+            switch response.result {
+                case .Success:
+                if let res = response.result.value {
+                    let json = JSON(res)
+                    for (_,subJson):(String, JSON) in json {
+                        let c = Category(id: subJson["_id"].string!, name: subJson["name"].string!, icon: subJson["icon"].string!)
+                        print(c)
+                        self.categories.append(c)
+                    }
+                    self.tableView.reloadData()
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                }
+                case .Failure(let error):
+                print(error)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,13 +51,13 @@ class CategoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager!.mainCategories.count
+        return self.categories.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: CategoryTableViewCell = tableView.dequeueReusableCellWithIdentifier("MainCategoryTableViewCell", forIndexPath: indexPath) as! CategoryTableViewCell
         
-        let categoryData = dataManager!.mainCategories[indexPath.row] as Category
+        let categoryData = categories[indexPath.row]
         
         cell.categoryIconLabel.font = UIFont.fontAwesomeOfSize(17)
         cell.categoryIconLabel.text = String.fontAwesomeIconWithCode(categoryData.icon)
@@ -88,7 +108,7 @@ class CategoryTableViewController: UITableViewController {
         if segue.identifier == "SubCategoriesSegue" {
             let vc = segue.destinationViewController as! SubCategoryTableViewController
             let row = tableView.indexPathForSelectedRow?.row
-            let mainCategory = dataManager!.mainCategories[row!] as Category
+            let mainCategory = categories[row!]
             vc.mainCategory = mainCategory
             vc.title = mainCategory.name
         }
