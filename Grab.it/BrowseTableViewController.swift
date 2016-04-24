@@ -41,13 +41,7 @@ class BrowseTableViewController: UITableViewController {
         
         cell.adImageView.kf_setImageWithURL(NSURL(string: adData.imageUrl)!)
         cell.adNameLabel.text = adData.title
-        
-        for city in dataManager!.cities {
-            if city.id == adData.cityId {
-                cell.adLocationLabel.text = city.name
-            }
-        }
-        
+        cell.adLocationLabel.text = adData.getCityName()
         cell.adPriceLabel.text = String(adData.price) + "Ft"
         
         return cell
@@ -88,14 +82,18 @@ class BrowseTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AdDetailsSegue" {
+            let vc = segue.destinationViewController as! AdViewController
+            let row = tableView.indexPathForSelectedRow?.row
+            let ad = dataManager!.ads[row!] as Ad
+            vc.ad = ad
+            vc.title = ad.title
+        }
     }
-    */
+ 
 
 }

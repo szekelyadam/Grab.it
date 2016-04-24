@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212979541CCD09A9001E66A2 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212979531CCD09A9001E66A2 /* AdViewController.swift */; };
 		214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214405AA1CC5875400D00992 /* AppDelegate.swift */; };
 		214405AD1CC5875400D00992 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214405AC1CC5875400D00992 /* ViewController.swift */; };
 		214405B01CC5875400D00992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214405AE1CC5875400D00992 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0003934024A3707B6063F534 /* Pods-Grab.it.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grab.it.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it.release.xcconfig"; sourceTree = "<group>"; };
+		212979531CCD09A9001E66A2 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		214405A71CC5875400D00992 /* Grab.it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grab.it.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214405AA1CC5875400D00992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		214405AC1CC5875400D00992 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */,
 				218681921CCBE541000040D7 /* CategoryTableViewController.swift */,
 				21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */,
+				212979531CCD09A9001E66A2 /* AdViewController.swift */,
 			);
 			path = Grab.it;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2186818B1CCBB004000040D7 /* AdTableViewCell.swift in Sources */,
+				212979541CCD09A9001E66A2 /* AdViewController.swift in Sources */,
 				214405C01CC589FC00D00992 /* Ad.swift in Sources */,
 				218681831CCBA4DA000040D7 /* Category.swift in Sources */,
 				21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */,

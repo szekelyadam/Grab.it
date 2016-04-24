@@ -32,4 +32,19 @@ class Ad: NSObject {
         self.created = created
         self.updated = updated
     }
+    
+    func getCityName() -> String {
+        for city in AppDelegate.sharedAppDelegate().dataManager.cities {
+            if city.id == self.cityId {
+                return city.name
+            }
+        }
+        return ""
+    }
+    
+    func getFormattedCreationDate() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormatter.stringFromDate(self.created)
+    }
 }
