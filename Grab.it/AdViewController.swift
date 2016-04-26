@@ -26,7 +26,7 @@ class AdViewController: UIViewController {
             adImageView.kf_setImageWithURL(NSURL(string: ad!.imageUrl)!)
             adNameLabel.text = ad!.title
             adPostedDateLabel.text = ad!.getFormattedCreationDate()
-            adLocationLabel.text = ad!.getCityName()
+            adLocationLabel.text = ad!.cityName
             adPriceLabel.text = String(ad!.price) + "Ft"
             adDetailsTextView.text = ad!.desc
         }

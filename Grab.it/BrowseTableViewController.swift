@@ -27,7 +27,7 @@ class BrowseTableViewController: UITableViewController {
                 if let res = response.result.value {
                     let json = JSON(res)
                     for (_,subJson):(String, JSON) in json {
-                        let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)/public/\(subJson["_id"].string!).jpg", cityId: subJson["city_id"].int!, userId: subJson["user_id"].string!, categoryId: subJson["category_id"].string!, created: NSDate(), updated: NSDate())
+                        let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)\(subJson["image_url"].string!)", cityId: subJson["city_id"].int!, cityName: subJson["city_name"].string!, userId: subJson["user_id"].string!, categoryId: subJson["category_id"].string!, created: NSDate(), updated: NSDate())
                         self.ads.append(ad)
                     }
                     self.tableView.reloadData()
@@ -63,7 +63,7 @@ class BrowseTableViewController: UITableViewController {
         
         cell.adImageView.kf_setImageWithURL(NSURL(string: adData.imageUrl)!)
         cell.adNameLabel.text = adData.title
-        cell.adLocationLabel.text = adData.getCityName()
+        cell.adLocationLabel.text = adData.cityName
         cell.adPriceLabel.text = String(adData.price) + "Ft"
         
         return cell
