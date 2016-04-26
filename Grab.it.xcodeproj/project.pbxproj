@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210C98F21CD00C3F00734E5F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C98F11CD00C3F00734E5F /* SearchViewController.swift */; };
 		212979541CCD09A9001E66A2 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212979531CCD09A9001E66A2 /* AdViewController.swift */; };
 		212979561CCD2707001E66A2 /* SubCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212979551CCD2707001E66A2 /* SubCategoryTableViewController.swift */; };
 		214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214405AA1CC5875400D00992 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0003934024A3707B6063F534 /* Pods-Grab.it.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grab.it.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it.release.xcconfig"; sourceTree = "<group>"; };
+		210C98F11CD00C3F00734E5F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		212979531CCD09A9001E66A2 /* AdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		212979551CCD2707001E66A2 /* SubCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewController.swift; sourceTree = "<group>"; };
 		214405A71CC5875400D00992 /* Grab.it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grab.it.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */,
 				212979531CCD09A9001E66A2 /* AdViewController.swift */,
 				212979551CCD2707001E66A2 /* SubCategoryTableViewController.swift */,
+				210C98F11CD00C3F00734E5F /* SearchViewController.swift */,
 			);
 			path = Grab.it;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				218681871CCBA6DE000040D7 /* County.swift in Sources */,
 				218681851CCBA66E000040D7 /* City.swift in Sources */,
 				2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */,
+				210C98F21CD00C3F00734E5F /* SearchViewController.swift in Sources */,
 				218681891CCBA70B000040D7 /* User.swift in Sources */,
 				214405AD1CC5875400D00992 /* ViewController.swift in Sources */,
 				214405B31CC5875400D00992 /* Grab_it.xcdatamodeld in Sources */,

@@ -15,6 +15,7 @@ import SwiftyJSON
 class BrowseTableViewController: UITableViewController {
 
     var ads = [Ad]()
+    var searchFieldText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,29 @@ class BrowseTableViewController: UITableViewController {
             }
         }
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+
+        if self.searchFieldText != nil {
+            let url = "http://grabit-szekelyadam.rhcloud.com"
+            Alamofire.request(.GET, url + "/api/ads", parameters: ["text": self.searchFieldText!]).responseJSON { response in
+                switch response.result {
+                case .Success:
+                    if let res = response.result.value {
+                        let json = JSON(res)
+                        for (_,subJson):(String, JSON) in json {
+                            let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)\(subJson["image_url"].string!)", cityId: subJson["city_id"].int!, cityName: subJson["city_name"].string!, userId: subJson["user_id"].string!, categoryId: subJson["category_id"].string!, created: NSDate(), updated: NSDate())
+                            self.ads.removeAll()
+                            self.ads.append(ad)
+                        }
+                        self.tableView.reloadData()
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

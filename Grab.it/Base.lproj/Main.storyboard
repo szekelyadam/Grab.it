@@ -475,7 +475,7 @@
         <!--Search-->
         <scene sceneID="e7M-13-BRj">
             <objects>
-                <viewController id="u3J-h8-QBg" sceneMemberID="viewController">
+                <viewController id="u3J-h8-QBg" customClass="SearchViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BNy-Jj-ZL8"/>
                         <viewControllerLayoutGuide type="bottom" id="hlp-s2-gkA"/>
@@ -599,11 +599,14 @@
                     <navigationItem key="navigationItem" title="Search" id="k4c-iZ-LtB">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="g7R-qe-nUo">
                             <connections>
-                                <segue destination="ld1-IZ-7lF" kind="show" id="MQU-fL-RDL"/>
+                                <segue destination="ld1-IZ-7lF" kind="show" identifier="SearchDoneSegue" id="MQU-fL-RDL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="wqV-PL-4CE" id="H4U-a0-s6I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJw-o9-iJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
