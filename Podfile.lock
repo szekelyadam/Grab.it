@@ -2,12 +2,18 @@ PODS:
   - Alamofire (3.3.1)
   - FontAwesome.swift (0.7.1)
   - Kingfisher (2.3.1)
+  - REFormattedNumberField (1.1.6)
+  - RETableViewManager (1.7):
+    - REFormattedNumberField (~> 1.1.5)
+    - REValidation (~> 0.1.4)
+  - REValidation (0.1.4)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
   - FontAwesome.swift
   - Kingfisher (~> 2.3)
+  - RETableViewManager (~> 1.6)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -23,6 +29,9 @@ SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
   Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
+  REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
+  RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
+  REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

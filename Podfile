@@ -9,5 +9,6 @@ target 'Grab.it' do
     pod 'FontAwesome.swift'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'Alamofire', '~> 3.3'
+    pod 'RETableViewManager', '~> 1.6'
 end
 
