@@ -34,10 +34,22 @@ class SearchViewController: UITableViewController, RETableViewManagerDelegate {
         self.searchField = RETextItem(title: nil, value: nil, placeholder: "Search in title or description")
         section1.addItem(searchField)
         
+        let path = NSBundle.mainBundle().pathForResource("Cities", ofType: "json")
+        let jsonData = NSData(contentsOfFile:path!)
+        let json = JSON(data: jsonData!)
+        var cities = [String]()
+        
+        for (_,subJson):(String, JSON) in json {
+            cities.append(subJson["name"].string!)
+        }
+        
+        var citiesOptions = [AnyObject]()
+        citiesOptions.append(removeDuplicates(cities))
+        
         let section2: RETableViewSection = RETableViewSection(headerTitle: "")
         self.manager.addSection(section2)
         
-        self.locationField = REPickerItem(title: "Location", value: nil, placeholder: nil, options: [["Budapest", "Békéscsaba"]])
+        self.locationField = REPickerItem(title: "Location", value: nil, placeholder: nil, options: citiesOptions)
         section2.addItem(self.locationField)
         
         var lowerPrice = [String]()
@@ -45,8 +57,8 @@ class SearchViewController: UITableViewController, RETableViewManagerDelegate {
         
         var num = 0
         while num <= 10000000 {
-            lowerPrice.append(String(num))
-            higherPrice.append(String(num))
+            lowerPrice.append("\(num) Ft")
+            higherPrice.append("\(num) Ft")
             num += 1000
         }
         
@@ -54,7 +66,7 @@ class SearchViewController: UITableViewController, RETableViewManagerDelegate {
         priceOptions.append(lowerPrice)
         priceOptions.append(higherPrice)
         
-        self.priceRangeField = REPickerItem(title: "Price range", value: ["0", "0"], placeholder: nil, options: priceOptions)
+        self.priceRangeField = REPickerItem(title: "Price range", value: ["0 Ft", "0 Ft"], placeholder: nil, options: priceOptions)
         section2.addItem(self.priceRangeField)
         
         var categoryOptions = [AnyObject]()
@@ -99,11 +111,35 @@ class SearchViewController: UITableViewController, RETableViewManagerDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchDoneSegue" {
-//            let vc = segue.destinationViewController as! BrowseTableViewController
-//            print(searchTextField.text!)
-//            vc.searchFieldText = searchTextField.text!;
+            let vc = segue.destinationViewController as! BrowseTableViewController
+            vc.searchFieldText = self.searchField.value;
+            if self.locationField.value != nil {
+                vc.locationPickerText = self.locationField.value[0] as? String;
+            }
+            if self.categoryField.value != nil {
+                vc.categoryPicker = self.categoryField.value[0] as? String;
+            }
+            if self.priceRangeField.value != nil {
+                vc.lowestPrice = Int((self.priceRangeField.value[0] as! String).stringByReplacingOccurrencesOfString(" Ft", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil));
+                vc.highestPrice = Int((self.priceRangeField.value[1] as! String).stringByReplacingOccurrencesOfString(" Ft", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil));
+            }
         }
     }
- 
+}
 
+func removeDuplicates(array: [String]) -> [String] {
+    var encountered = Set<String>()
+    var result: [String] = []
+    for value in array {
+        if encountered.contains(value) {
+            // Do not add a duplicate element.
+        }
+        else {
+            // Add value to the set.
+            encountered.insert(value)
+            // ... Append the value.
+            result.append(value)
+        }
+    }
+    return result
 }

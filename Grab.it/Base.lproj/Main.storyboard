@@ -57,7 +57,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BrowseTableViewCell" rowHeight="165" id="QrN-t6-oi9" customClass="AdTableViewCell" customModule="Grab_it" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="165"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="165"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrN-t6-oi9" id="z81-6H-1m1">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
@@ -156,7 +156,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gb4-eJ-5Ci">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="emA-T7-1bP" id="rJ7-Wc-2g5"/>
                             <outlet property="delegate" destination="emA-T7-1bP" id="RUx-3x-IfL"/>
@@ -166,7 +166,7 @@
                     <navigationItem key="navigationItem" title="Search" id="7A2-J0-0fL">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="bhU-nC-mN5">
                             <connections>
-                                <segue destination="ld1-IZ-7lF" kind="show" id="R7Q-67-DGv"/>
+                                <segue destination="ld1-IZ-7lF" kind="show" identifier="SearchDoneSegue" id="R7Q-67-DGv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -424,7 +424,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCategoryTableViewCell" id="V1l-K1-9Z5" customClass="CategoryTableViewCell" customModule="Grab_it" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V1l-K1-9Z5" id="vJp-dv-jg7">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>

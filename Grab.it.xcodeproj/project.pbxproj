@@ -25,6 +25,7 @@
 		2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */; };
 		2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */; };
 		218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681921CCBE541000040D7 /* CategoryTableViewController.swift */; };
+		21B299651CD9401E00A9DDF0 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 21B299641CD9401E00A9DDF0 /* Cities.json */; };
 		21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */; };
 		2A885205B6447F10BAA818D9 /* Pods_Grab_it.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC7362B6901326BD080591E /* Pods_Grab_it.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		2186818C1CCBDEF2000040D7 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
 		2186818E1CCBE48A000040D7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		218681921CCBE541000040D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		21B299641CD9401E00A9DDF0 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2FC7362B6901326BD080591E /* Pods_Grab_it.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grab_it.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5555563D3EF02A1FA032A493 /* Pods-Grab.it.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grab.it.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		214405A91CC5875400D00992 /* Grab.it */ = {
 			isa = PBXGroup;
 			children = (
+				21B299641CD9401E00A9DDF0 /* Cities.json */,
 				214405AA1CC5875400D00992 /* AppDelegate.swift */,
 				214405AC1CC5875400D00992 /* ViewController.swift */,
 				214405AE1CC5875400D00992 /* Main.storyboard */,
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B299651CD9401E00A9DDF0 /* Cities.json in Resources */,
 				214405B81CC5875400D00992 /* LaunchScreen.storyboard in Resources */,
 				214405B51CC5875400D00992 /* Assets.xcassets in Resources */,
 				214405B01CC5875400D00992 /* Main.storyboard in Resources */,

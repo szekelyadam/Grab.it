@@ -16,6 +16,10 @@ class BrowseTableViewController: UITableViewController {
 
     var ads = [Ad]()
     var searchFieldText: String?
+    var locationPickerText: String?
+    var categoryPicker: String?
+    var lowestPrice: Int?
+    var highestPrice: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +27,32 @@ class BrowseTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         let url = "http://grabit-szekelyadam.rhcloud.com"
+        
+        var text = ""
+        var city = ""
+        var category = ""
+        var gt = 0
+        var lt = 0
+        
+        if searchFieldText != nil {
+            text = searchFieldText!
+        }
+        
+        if locationPickerText != nil {
+            city = locationPickerText!
+        }
+        
+        if categoryPicker != nil {
+            category = categoryPicker!
+        }
+        
+        if lowestPrice != nil && highestPrice != nil  && (lowestPrice! >= 0 && highestPrice > 0) {
+            gt = lowestPrice!
+            lt = highestPrice!
+        }
+        
         if self.searchFieldText != nil {
-            Alamofire.request(.GET, url + "/api/ads", parameters: ["text": self.searchFieldText!]).responseJSON { response in
+            Alamofire.request(.GET, url + "/api/ads", parameters: ["text": text, "city": city, "category": category, "gt": gt, "lt": lt]).responseJSON { response in
                 switch response.result {
                 case .Success:
                     self.ads.removeAll()
