@@ -1,57 +1,25 @@
 //
-//  BrowseTableViewController.swift
+//  MyAdsTableViewController.swift
 //  Grab.it
 //
-//  Created by Ádám Székely on 23/04/16.
+//  Created by Ádám Székely on 04/05/16.
 //  Copyright © 2016 Ádám Székely. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
-import FontAwesome_swift
 import Alamofire
 import SwiftyJSON
 
-class BrowseTableViewController: UITableViewController {
-
-    var ads = [Ad]()
-    var searchFieldText: String?
-    var locationPickerText: String?
-    var categoryPicker: String?
-    var lowestPrice: Int?
-    var highestPrice: Int?
+class MyAdsTableViewController: UITableViewController {
     
+    var ads = [Ad]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+        
         let url = "http://grabit-szekelyadam.rhcloud.com"
-        
-        var text = ""
-        var city = ""
-        var category = ""
-        var gt = 0
-        var lt = 0
-        
-        if searchFieldText != nil {
-            text = searchFieldText!
-        }
-        
-        if locationPickerText != nil {
-            city = locationPickerText!
-        }
-        
-        if categoryPicker != nil {
-            category = categoryPicker!
-        }
-        
-        if lowestPrice != nil && highestPrice != nil  && (lowestPrice! >= 0 && highestPrice > 0) {
-            gt = lowestPrice!
-            lt = highestPrice!
-        }
-        
-        Alamofire.request(.GET, url + "/api/ads", parameters: ["text": text, "city": city, "category": category, "gt": gt, "lt": lt]).responseJSON { response in
+
+        Alamofire.request(.GET, url + "/api/ads", parameters: ["user_id": "0000000198e42f0000000004"]).responseJSON { response in
             switch response.result {
             case .Success:
                 self.ads.removeAll()
@@ -71,24 +39,24 @@ class BrowseTableViewController: UITableViewController {
             }
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.ads.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: AdTableViewCell = tableView.dequeueReusableCellWithIdentifier("BrowseTableViewCell", forIndexPath: indexPath) as! AdTableViewCell
+        let cell: AdTableViewCell = tableView.dequeueReusableCellWithIdentifier("MyAdTableViewCell", forIndexPath: indexPath) as! AdTableViewCell
         
         let adData = self.ads[indexPath.row]
         
@@ -135,18 +103,14 @@ class BrowseTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "AdDetailsSegue" {
-            let vc = segue.destinationViewController as! AdViewController
-            let row = tableView.indexPathForSelectedRow?.row
-            let ad = self.ads[row!]
-            vc.ad = ad
-            vc.title = ad.title
-        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
- 
+    */
 
 }
