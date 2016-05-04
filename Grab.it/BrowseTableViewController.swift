@@ -51,41 +51,20 @@ class BrowseTableViewController: UITableViewController {
             lt = highestPrice!
         }
         
-        if self.searchFieldText != nil {
-            Alamofire.request(.GET, url + "/api/ads", parameters: ["text": text, "city": city, "category": category, "gt": gt, "lt": lt]).responseJSON { response in
-                switch response.result {
-                case .Success:
-                    self.ads.removeAll()
-                    if let res = response.result.value {
-                        let json = JSON(res)
-                        for (_,subJson):(String, JSON) in json {
-                            let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)\(subJson["image_url"].string!)", cityId: subJson["city_id"].int!, cityName: subJson["city_name"].string!, userId: subJson["user_id"].string!, categoryId: subJson["category_id"].string!, created: NSDate(), updated: NSDate())
+        Alamofire.request(.GET, url + "/api/ads", parameters: ["text": text, "city": city, "category": category, "gt": gt, "lt": lt]).responseJSON { response in
+            switch response.result {
+            case .Success:
+                self.ads.removeAll()
+                if let res = response.result.value {
+                    let json = JSON(res)
+                    for (_,subJson):(String, JSON) in json {
+                        let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)\(subJson["image_url"].string!)", cityId: subJson["city"]["id"].int!, cityName: subJson["city"]["name"].string!, userId: subJson["user_id"].string!, categoryId: subJson["category"]["id"].string!, created: NSDate(), updated: NSDate())
                             self.ads.append(ad)
-                        }
-                        self.tableView.reloadData()
                     }
-                case .Failure(let error):
-                    print(error)
+                    self.tableView.reloadData()
                 }
-            }
-        } else {
-            Alamofire.request(.GET, url + "/api/ads").responseJSON { response in
-                switch response.result {
-                case .Success:
-                    self.ads.removeAll()
-                    if let res = response.result.value {
-                        let json = JSON(res)
-                        for (_,subJson):(String, JSON) in json {
-                            let ad = Ad(id: subJson["_id"].string!, title: subJson["title"].string!, desc: subJson["description"].string!, price: subJson["price"].int!, imageUrl: "\(url)\(subJson["image_url"].string!)", cityId: subJson["city_id"].int!, cityName: subJson["city_name"].string!, userId: subJson["user_id"].string!, categoryId: subJson["category_id"].string!, created: NSDate(), updated: NSDate())
-                            self.ads.append(ad)
-                        }
-                        self.tableView.reloadData()
-                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                    }
-                case .Failure(let error):
-                    print(error)
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                }
+            case .Failure(let error):
+                print(error)
             }
         }
     }
