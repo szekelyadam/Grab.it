@@ -673,7 +673,7 @@
         <!--Profile-->
         <scene sceneID="qmH-eF-pIs">
             <objects>
-                <viewController id="6K5-eE-hRH" sceneMemberID="viewController">
+                <viewController id="6K5-eE-hRH" customClass="ProfileViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jco-Eg-yj9"/>
                         <viewControllerLayoutGuide type="bottom" id="3pU-r0-hzm"/>
@@ -797,12 +797,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
-                                    <segue destination="mk2-5Z-5Cu" kind="show" id="DiJ-wk-OkR"/>
+                                    <segue destination="mk2-5Z-5Cu" kind="show" identifier="EditProfileSegue" id="DiJ-wk-OkR"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="ZhZ-of-lno" id="y8x-92-p4u"/>
+                        <outlet property="nameLabel" destination="rMY-wh-dTT" id="qdY-jS-WMK"/>
+                        <outlet property="phoneLabel" destination="A9H-fQ-ehr" id="QmL-mM-TPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6v-yt-ijL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -837,7 +842,7 @@
         <!--Edit profile-->
         <scene sceneID="q0x-OO-XUr">
             <objects>
-                <viewController id="mk2-5Z-5Cu" sceneMemberID="viewController">
+                <viewController id="mk2-5Z-5Cu" customClass="EditProfileViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nKM-cd-nfA"/>
                         <viewControllerLayoutGuide type="bottom" id="iVM-gN-Eve"/>
@@ -889,6 +894,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyx-sG-xdm">
                                 <rect key="frame" x="116" y="241" width="188" height="30"/>
                                 <state key="normal" title="Change profile picture"/>
+                                <connections>
+                                    <action selector="changeProfilePictureButtonTapped:" destination="mk2-5Z-5Cu" eventType="touchUpInside" id="lTg-h7-Web"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -913,9 +921,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit profile" id="m2e-s9-p2b">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="wkg-iW-YCh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="wkg-iW-YCh">
+                            <connections>
+                                <segue destination="6K5-eE-hRH" kind="show" identifier="UpdateProfileSegue" id="zqb-kX-32a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ZqA-kA-Yyq" id="dpW-vN-zZn"/>
+                        <outlet property="nameTextField" destination="RcB-42-DRP" id="H5G-ER-lS7"/>
+                        <outlet property="phoneTextField" destination="J0P-ik-429" id="toK-mS-ws4"/>
+                        <outlet property="profilePictureImageView" destination="zxX-c9-iD2" id="RTV-y6-zfl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkj-2Z-llb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1060,7 +1078,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R7Q-67-DGv"/>
         <segue reference="YHT-r4-bzY"/>
+        <segue reference="R7Q-67-DGv"/>
+        <segue reference="wN9-3i-aZV"/>
     </inferredMetricsTieBreakers>
 </document>

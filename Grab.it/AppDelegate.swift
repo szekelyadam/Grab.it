@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +22,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if userDefaults.objectForKey("UserUUID") == nil {
+            let UUID = NSUUID().UUIDString
+            userDefaults.setObject(UUID, forKey: "UserUUID")
+            userDefaults.synchronize()
+            
+            let parameters = [
+                "user_id": userDefaults.objectForKey("UserUUID")
+            ]
+            
+            Alamofire.request(.POST, "http://grabit-szekelyadam.rhcloud.com/api/users", parameters: parameters as? [String : AnyObject], encoding: .JSON).responseJSON { response in
+                switch response.result {
+                case .Success:
+                    print("User created")
+                case .Failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
         return true
     }
 

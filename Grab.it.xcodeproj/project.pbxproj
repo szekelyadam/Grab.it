@@ -29,6 +29,8 @@
 		218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681921CCBE541000040D7 /* CategoryTableViewController.swift */; };
 		21B299651CD9401E00A9DDF0 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 21B299641CD9401E00A9DDF0 /* Cities.json */; };
 		21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */; };
+		21E472F91CDFAA15004161E7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */; };
+		21E472FB1CDFAF49004161E7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */; };
 		21FE190D1CDF77F000B8722A /* EditAdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE190C1CDF77F000B8722A /* EditAdTableViewController.swift */; };
 		2A885205B6447F10BAA818D9 /* Pods_Grab_it.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC7362B6901326BD080591E /* Pods_Grab_it.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		218681921CCBE541000040D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		21B299641CD9401E00A9DDF0 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		21FE190C1CDF77F000B8722A /* EditAdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAdTableViewController.swift; sourceTree = "<group>"; };
 		2FC7362B6901326BD080591E /* Pods_Grab_it.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grab_it.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5555563D3EF02A1FA032A493 /* Pods-Grab.it.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grab.it.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grab.it/Pods-Grab.it.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				2159B43B1CD9F2FE00B73254 /* MyAdsTableViewController.swift */,
 				2159B43D1CD9F94F00B73254 /* NewAdTableViewController.swift */,
 				21FE190C1CDF77F000B8722A /* EditAdTableViewController.swift */,
+				21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */,
+				21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */,
 			);
 			path = Grab.it;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 				21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */,
 				212979561CCD2707001E66A2 /* SubCategoryTableViewController.swift in Sources */,
 				2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */,
+				21E472F91CDFAA15004161E7 /* EditProfileViewController.swift in Sources */,
 				218681871CCBA6DE000040D7 /* County.swift in Sources */,
 				2159B43C1CD9F2FE00B73254 /* MyAdsTableViewController.swift in Sources */,
 				218681851CCBA66E000040D7 /* City.swift in Sources */,
@@ -282,6 +289,7 @@
 				2159B43E1CD9F94F00B73254 /* NewAdTableViewController.swift in Sources */,
 				214405AD1CC5875400D00992 /* ViewController.swift in Sources */,
 				214405B31CC5875400D00992 /* Grab_it.xcdatamodeld in Sources */,
+				21E472FB1CDFAF49004161E7 /* ProfileViewController.swift in Sources */,
 				214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */,
 				218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */,
 			);
