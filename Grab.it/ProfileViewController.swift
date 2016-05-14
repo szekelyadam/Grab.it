@@ -9,16 +9,29 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Alamofire.request(.GET, "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)", encoding: .JSON).responseJSON { response in
+        
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.borderColor = UIColor.blackColor().CGColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.clipsToBounds = true
+        
+        let url = "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)"
+        
+        profileImageView.kf_setImageWithURL(NSURL(string: "\(url)/profile_picture")!)
+        
+        Alamofire.request(.GET, url, encoding: .JSON).responseJSON { response in
             switch response.result {
             case .Success:
                 if let res = response.result.value {
@@ -41,6 +54,14 @@ class ProfileViewController: UIViewController {
 
     // MARK: - Navigation
 
+    @IBAction func updateProfile(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func cancelProfileEdit(segue: UIStoryboardSegue) {
+        
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EditProfileSegue" {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -16,11 +17,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var name: String? = nil
     var email: String? = nil
     var phone: String? = nil
+    var imageURL: NSURL? = nil
+    
+    var currentPictureURL: String? = nil
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var profilePictureImageView: UIImageView!
+    
     @IBAction func changeProfilePictureButtonTapped(sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -36,6 +41,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profilePictureImageView.layer.borderColor = UIColor.blackColor().CGColor
         profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.height/2
         profilePictureImageView.clipsToBounds = true
+        
+        profilePictureImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)/profile_picture")!)
         
         imagePicker.delegate = self
         
@@ -58,6 +65,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+        let imageName = imageURL.lastPathComponent
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
+        let localPath = NSURL(fileURLWithPath: documentDirectory).URLByAppendingPathComponent(imageName!)
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let data = UIImageJPEGRepresentation(image, 0.0)
+        data!.writeToURL(localPath, atomically: true)
+        
+        print(localPath)
+        
+        self.imageURL = localPath
+        
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         profilePictureImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
@@ -70,22 +90,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "UpdateProfileSegue" {
-            segue.destinationViewController as! ProfileViewController
+            let vc = segue.destinationViewController as! ProfileViewController
             
-            var image = String()
-            
-            if self.profilePictureImageView.image != nil {
-                if let jpegImageData = UIImageJPEGRepresentation(self.profilePictureImageView.image!, 1.0) {
-                    image = jpegImageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
-                }
-            }
             
             let parameters : [String : AnyObject] = [
                 "name": nameTextField.text!,
                 "email": emailTextField.text!,
                 "phone": phoneTextField.text!,
-                "image": image
             ]
             
             let url = "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)"
@@ -94,12 +107,37 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 print(response)
                 switch response.result {
                 case .Success:
+                    vc.nameLabel.text = self.nameTextField.text!
+                    vc.emailLabel.text = self.emailTextField.text!
+                    vc.phoneLabel.text = self.phoneTextField.text!
+                    
                     let alertController = UIAlertController(title: "Success", message:"Profile data updated", preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
                     self.presentViewController(alertController, animated: true, completion: nil)
                 case .Failure(let error):
                     print(error)
                 }
+            }
+            
+            if self.imageURL != nil {
+                Alamofire.upload(
+                    .POST,
+                    "\(url)/profile_picture",
+                    multipartFormData: { multipartFormData in
+                        multipartFormData.appendBodyPart(fileURL: self.imageURL!, name: "image")
+                    },
+                    encodingCompletion: { encodingResult in
+                        switch encodingResult {
+                        case .Success(let upload, _, _):
+                            upload.responseJSON { response in
+                                print(response)
+                                vc.profileImageView.kf_setImageWithURL(NSURL(string: "\(url)/profile_picture")!, placeholderImage: nil, optionsInfo: [.ForceRefresh, .Transition(ImageTransition.Fade(1))])
+                            }
+                        case .Failure(let encodingError):
+                            print(encodingError)
+                        }
+                    }
+                )
             }
             
         }
