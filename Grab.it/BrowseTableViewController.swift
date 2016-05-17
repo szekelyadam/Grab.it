@@ -23,9 +23,7 @@ class BrowseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+        
         let url = "http://grabit-szekelyadam.rhcloud.com"
         
         var text = ""
@@ -64,12 +62,13 @@ class BrowseTableViewController: UITableViewController {
                         }
                         self.ads.append(ad)
                     }
-                    self.tableView.reloadData()
                 }
+                self.tableView.reloadData()
             case .Failure(let error):
                 print(error)
             }
         }
+
     }
     
     override func didReceiveMemoryWarning() {
