@@ -73,7 +73,7 @@ class MyAdsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EditAdSegue" {
-            let vc = segue.destinationViewController as! EditAdTableViewController
+            let vc = segue.destinationViewController as! EditAdViewController
             let row = tableView.indexPathForSelectedRow?.row
             let ad = self.ads[row!]
             vc.ad = ad

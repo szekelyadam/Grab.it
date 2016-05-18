@@ -656,7 +656,7 @@
                                     <outlet property="adLocationLabel" destination="NuH-PO-0Jx" id="FZn-iU-1hG"/>
                                     <outlet property="adNameLabel" destination="HqS-Ed-p4G" id="LD9-96-tyI"/>
                                     <outlet property="adPriceLabel" destination="73E-Xw-lLz" id="gsX-0b-hLX"/>
-                                    <segue destination="8rs-yP-wLO" kind="show" identifier="EditAdSegue" id="Ss4-mp-LSy"/>
+                                    <segue destination="6Ei-h0-GVA" kind="show" identifier="EditAdSegue" id="Mlh-h4-yeG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -738,6 +738,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rhh-m7-koF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1553" y="2705"/>
+        </scene>
+        <!--Edit ad-->
+        <scene sceneID="7la-OS-AVA">
+            <objects>
+                <viewController id="6Ei-h0-GVA" customClass="EditAdViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fXG-B8-CUz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ftJ-Hg-plG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LYd-ho-FwQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybN-Ps-SeT">
+                                <rect key="frame" x="0.0" y="85" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIJ-wS-peO">
+                                <rect key="frame" x="0.0" y="123" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b16-aY-hgn" customClass="AutoCompleteTextField" customModule="Grab_it" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="161" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Unr-u8-kg0" customClass="AutoCompleteTextField" customModule="Grab_it" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-lr-xuK">
+                                <rect key="frame" x="0.0" y="254" width="320" height="173"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit ad" id="ScH-mQ-OKY">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="v8i-MC-JPu">
+                            <connections>
+                                <segue destination="ZPL-iX-rpQ" kind="show" identifier="UpdateAdSegue" id="5rn-qO-ZUM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="categoryTextField" destination="Unr-u8-kg0" id="r2A-eE-myy"/>
+                        <outlet property="descriptionTextView" destination="Xhw-lr-xuK" id="x3E-Wq-jHW"/>
+                        <outlet property="locationTextField" destination="b16-aY-hgn" id="acV-d8-eIw"/>
+                        <outlet property="nameTextField" destination="ybN-Ps-SeT" id="9Jm-Gv-t5a"/>
+                        <outlet property="priceTextField" destination="XIJ-wS-peO" id="7id-kK-ace"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWp-P1-lTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1553" y="3452"/>
         </scene>
         <!--Profile-->
         <scene sceneID="qmH-eF-pIs">
@@ -883,32 +944,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6v-yt-ijL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071" y="4135"/>
-        </scene>
-        <!--Edit ad-->
-        <scene sceneID="WTP-os-3Yw">
-            <objects>
-                <tableViewController id="8rs-yP-wLO" customClass="EditAdTableViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dhD-Sn-knc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="8rs-yP-wLO" id="RSr-1L-Xc7"/>
-                            <outlet property="delegate" destination="8rs-yP-wLO" id="iAf-Wt-h5y"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Edit ad" id="o1S-sl-f98">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="lxh-jp-fMg">
-                            <connections>
-                                <segue destination="ZPL-iX-rpQ" kind="show" identifier="UpdateAdSegue" id="YHT-r4-bzY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OnF-lV-VYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1532" y="3453"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="q0x-OO-XUr">
@@ -1161,6 +1196,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="0Ca-FX-szr"/>
-        <segue reference="9If-u3-Nxf"/>
+        <segue reference="5rn-qO-ZUM"/>
     </inferredMetricsTieBreakers>
 </document>
