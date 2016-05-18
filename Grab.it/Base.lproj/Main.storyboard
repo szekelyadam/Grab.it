@@ -668,7 +668,7 @@
                     <navigationItem key="navigationItem" title="My ads" id="hEU-DX-Gvu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="W73-LG-4gA">
                             <connections>
-                                <segue destination="rNj-cB-U0O" kind="show" id="FWr-8L-tmj"/>
+                                <segue destination="F3m-rl-LwR" kind="show" id="M0w-Es-1Kh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -679,30 +679,65 @@
             <point key="canvasLocation" x="1071" y="2705"/>
         </scene>
         <!--New ad-->
-        <scene sceneID="FUj-wQ-Pk7">
+        <scene sceneID="L1z-qW-HOA">
             <objects>
-                <tableViewController id="rNj-cB-U0O" customClass="NewAdTableViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mZ7-PM-MWf">
+                <viewController id="F3m-rl-LwR" customClass="NewAdViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xe6-v8-sjr"/>
+                        <viewControllerLayoutGuide type="bottom" id="3nr-3f-0ig"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xvR-QG-PYc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cby-vw-IAq">
+                                <rect key="frame" x="0.0" y="77" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyn-za-clt">
+                                <rect key="frame" x="0.0" y="115" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAa-iV-VNO" customClass="AutoCompleteTextField" customModule="Grab_it" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="153" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gRA-4N-XkJ">
+                                <rect key="frame" x="0.0" y="246" width="320" height="173"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-o0-PTg" customClass="AutoCompleteTextField" customModule="Grab_it" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="191" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="rNj-cB-U0O" id="KPh-DT-ve2"/>
-                            <outlet property="delegate" destination="rNj-cB-U0O" id="fxZ-QP-iYq"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="New ad" id="csq-sz-oMk">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="sLk-IG-LUv">
+                    </view>
+                    <navigationItem key="navigationItem" title="New ad" id="4zJ-8Y-t6z">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="3Hk-CA-8l3">
                             <connections>
-                                <segue destination="ZPL-iX-rpQ" kind="show" identifier="PostAdSegue" id="eBG-5e-rel"/>
+                                <segue destination="ZPL-iX-rpQ" kind="show" identifier="PostAdSegue" id="9If-u3-Nxf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QnP-1h-dSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="categoryTextField" destination="Iyv-o0-PTg" id="dAg-fw-AyZ"/>
+                        <outlet property="descriptionTextView" destination="gRA-4N-XkJ" id="60m-0N-3lR"/>
+                        <outlet property="locationTextField" destination="tAa-iV-VNO" id="s8s-UX-pmk"/>
+                        <outlet property="nameTextField" destination="Cby-vw-IAq" id="78U-Aq-cMC"/>
+                        <outlet property="priceTextField" destination="fyn-za-clt" id="vnQ-sh-2aA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhh-m7-koF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="2705"/>
+            <point key="canvasLocation" x="1553" y="2705"/>
         </scene>
         <!--Profile-->
         <scene sceneID="qmH-eF-pIs">
@@ -1126,6 +1161,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="0Ca-FX-szr"/>
-        <segue reference="YHT-r4-bzY"/>
+        <segue reference="9If-u3-Nxf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,7 +17,7 @@
 		214405B81CC5875400D00992 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214405B61CC5875400D00992 /* LaunchScreen.storyboard */; };
 		214405C01CC589FC00D00992 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214405BF1CC589FC00D00992 /* Ad.swift */; };
 		2159B43C1CD9F2FE00B73254 /* MyAdsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2159B43B1CD9F2FE00B73254 /* MyAdsTableViewController.swift */; };
-		2159B43E1CD9F94F00B73254 /* NewAdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2159B43D1CD9F94F00B73254 /* NewAdTableViewController.swift */; };
+		2159B43E1CD9F94F00B73254 /* NewAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2159B43D1CD9F94F00B73254 /* NewAdViewController.swift */; };
 		218681831CCBA4DA000040D7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681821CCBA4DA000040D7 /* Category.swift */; };
 		218681851CCBA66E000040D7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681841CCBA66E000040D7 /* City.swift */; };
 		218681871CCBA6DE000040D7 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681861CCBA6DE000040D7 /* County.swift */; };
@@ -50,7 +50,7 @@
 		214405B91CC5875400D00992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		214405BF1CC589FC00D00992 /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		2159B43B1CD9F2FE00B73254 /* MyAdsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdsTableViewController.swift; sourceTree = "<group>"; };
-		2159B43D1CD9F94F00B73254 /* NewAdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAdTableViewController.swift; sourceTree = "<group>"; };
+		2159B43D1CD9F94F00B73254 /* NewAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAdViewController.swift; sourceTree = "<group>"; };
 		218681821CCBA4DA000040D7 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		218681841CCBA66E000040D7 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		218681861CCBA6DE000040D7 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = County.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				212979531CCD09A9001E66A2 /* AdViewController.swift */,
 				212979551CCD2707001E66A2 /* SubCategoryTableViewController.swift */,
 				2159B43B1CD9F2FE00B73254 /* MyAdsTableViewController.swift */,
-				2159B43D1CD9F94F00B73254 /* NewAdTableViewController.swift */,
+				2159B43D1CD9F94F00B73254 /* NewAdViewController.swift */,
 				21FE190C1CDF77F000B8722A /* EditAdTableViewController.swift */,
 				21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */,
 				21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */,
@@ -290,7 +290,7 @@
 				2186818F1CCBE48A000040D7 /* CategoryTableViewCell.swift in Sources */,
 				21A5034C1CEBCCBA006B5576 /* AutoCompleteTextField.swift in Sources */,
 				218681891CCBA70B000040D7 /* User.swift in Sources */,
-				2159B43E1CD9F94F00B73254 /* NewAdTableViewController.swift in Sources */,
+				2159B43E1CD9F94F00B73254 /* NewAdViewController.swift in Sources */,
 				214405AD1CC5875400D00992 /* ViewController.swift in Sources */,
 				214405B31CC5875400D00992 /* Grab_it.xcdatamodeld in Sources */,
 				21E472FB1CDFAF49004161E7 /* ProfileViewController.swift in Sources */,
