@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AdViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class AdViewController: UIViewController {
         super.viewDidLoad()
 
         if ad != nil {
-            adImageView.kf_setImageWithURL(NSURL(string: ad!.imageUrl)!)
+            adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(ad!.id)/image")!)
             adNameLabel.text = ad!.title
             adPostedDateLabel.text = ad!.getFormattedCreationDate()
             adLocationLabel.text = ad!.cityName

@@ -60,7 +60,7 @@ class MyAdsTableViewController: UITableViewController {
         
         let adData = self.ads[indexPath.row]
         
-        cell.adImageView.kf_setImageWithURL(NSURL(string: adData.imageUrl)!)
+        cell.adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(adData.id)/image")!)
         cell.adNameLabel.text = adData.title
         cell.adLocationLabel.text = adData.cityName
         cell.adPriceLabel.text = String(adData.price) + "Ft"
