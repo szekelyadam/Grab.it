@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.3.1)
+  - Alamofire (3.4.0)
   - FontAwesome.swift (0.7.1)
   - Kingfisher (2.3.1)
   - REFormattedNumberField (1.1.6)
@@ -26,7 +26,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
   Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6

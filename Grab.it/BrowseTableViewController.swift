@@ -90,8 +90,9 @@ class BrowseTableViewController: UITableViewController {
         let cell: AdTableViewCell = tableView.dequeueReusableCellWithIdentifier("BrowseTableViewCell", forIndexPath: indexPath) as! AdTableViewCell
         
         let adData = self.ads[indexPath.row]
-        print("http://grabit-szekelyadam.rhcloud.com/api/ads/\(adData.id)/image")
-        cell.adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(adData.id)/image")!)
+        if adData.imageUrl != "" {
+            cell.adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(adData.id)/image")!)
+        }
         cell.adNameLabel.text = adData.title
         cell.adLocationLabel.text = adData.cityName
         cell.adPriceLabel.text = String(adData.price) + "Ft"

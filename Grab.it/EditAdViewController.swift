@@ -9,17 +9,29 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import Kingfisher
 
-class EditAdViewController: UIViewController {
+class EditAdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    let imagePicker = UIImagePickerController()
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var locationTextField: AutoCompleteTextField!
     @IBOutlet weak var categoryTextField: AutoCompleteTextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var adImageView: UIImageView!
     
     var ad: Ad?
     var categoryNames = [String]()
+    var imageURL: NSURL? = nil
+    
+    @IBAction func changeAdImageButtonTapped(sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +40,10 @@ class EditAdViewController: UIViewController {
         self.priceTextField.text = String(ad!.price)
         self.locationTextField.text = ad!.cityName
         self.descriptionTextView.text = ad!.desc
+        
+        self.imagePicker.delegate = self
+        
+        self.adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(ad!.id)/image")!)
         
         // Cities autocomplete text field
         let path = NSBundle.mainBundle().pathForResource("Cities", ofType: "json")
@@ -97,6 +113,22 @@ class EditAdViewController: UIViewController {
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+        let imageName = imageURL.lastPathComponent
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
+        let localPath = NSURL(fileURLWithPath: documentDirectory).URLByAppendingPathComponent(imageName!)
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let data = UIImageJPEGRepresentation(image, 0.0)
+        data!.writeToURL(localPath, atomically: true)
+        
+        self.imageURL = localPath
+        
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        adImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
 
     
     // MARK: - Navigation
@@ -105,27 +137,53 @@ class EditAdViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "UpdateAdSegue" {
             segue.destinationViewController as! MyAdsTableViewController
-            let parameters = [
-                "title": self.nameTextField.text! as AnyObject,
-                "description": self.descriptionTextView.text! as AnyObject,
-                "price": self.priceTextField.text! as AnyObject,
-                "user_id": "0000000198e42f0000000004" as AnyObject,
-                "city": self.locationTextField.text! as AnyObject
-            ]
-            
-            Alamofire.request(.PUT, "http://grabit-szekelyadam.rhcloud.com/api/ads/\(ad!.id)", parameters: parameters, encoding: .JSON).responseJSON { response in
-                print(response)
-                switch response.result {
-                case .Success:
-                    let alertController = UIAlertController(title: "Success", message:"Ad updated", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                case .Failure(let error):
-                    print(error)
-                }
-            }
         }
     }
- 
-
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        let parameters = [
+            "title": self.nameTextField.text! as AnyObject,
+            "description": self.descriptionTextView.text! as AnyObject,
+            "price": self.priceTextField.text! as AnyObject,
+            "user_id": "0000000198e42f0000000004" as AnyObject,
+            "city": self.locationTextField.text! as AnyObject
+        ]
+        
+        let url = "http://grabit-szekelyadam.rhcloud.com/api/ads/\(ad!.id)"
+        
+        Alamofire.request(.PUT, url, parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+            switch response.result {
+            case .Success:
+                let alertController = UIAlertController(title: "Success", message:"Ad updated", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            case .Failure(let error):
+                print(error)
+            }
+        }
+        
+        if self.imageURL != nil {
+            Alamofire.upload(
+                .POST,
+                "\(url)/image",
+                multipartFormData: { multipartFormData in
+                    multipartFormData.appendBodyPart(fileURL: self.imageURL!, name: "image")
+                },
+                encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .Success(let upload, _, _):
+                        upload.responseString { response in
+                            print(response)
+                        }
+                    case .Failure(let encodingError):
+                        print(encodingError)
+                    }
+                }
+            )
+            return true
+        } else {
+            return true
+        }
+    }
 }
