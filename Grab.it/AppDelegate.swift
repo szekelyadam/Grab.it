@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var dataManager = DataManager()
+    var url = "http://localhost:3002"
     
     class func sharedAppDelegate() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
@@ -33,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 "user_id": userDefaults.objectForKey("UserUUID")
             ]
             
-            Alamofire.request(.POST, "http://grabit-szekelyadam.rhcloud.com/api/users", parameters: parameters as? [String : AnyObject], encoding: .JSON).responseJSON { response in
+            Alamofire.request(.POST, "\(AppDelegate.sharedAppDelegate().url)/api/users", parameters: parameters as? [String : AnyObject], encoding: .JSON).responseJSON { response in
                 switch response.result {
                 case .Success:
                     print("User created")

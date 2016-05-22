@@ -19,7 +19,7 @@ class CategoryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        Alamofire.request(.GET, "http://grabit-szekelyadam.rhcloud.com/api/categories").responseJSON { response in
+        Alamofire.request(.GET, "\(AppDelegate.sharedAppDelegate().url)/api/categories").responseJSON { response in
             switch response.result {
                 case .Success:
                 if let res = response.result.value {

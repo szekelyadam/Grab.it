@@ -24,7 +24,7 @@ class BrowseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = "http://grabit-szekelyadam.rhcloud.com"
+        let url = AppDelegate.sharedAppDelegate().url
         
         var text = ""
         var city = ""
@@ -91,7 +91,7 @@ class BrowseTableViewController: UITableViewController {
         
         let adData = self.ads[indexPath.row]
         if adData.imageUrl != "" {
-            cell.adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(adData.id)/image")!)
+            cell.adImageView.kf_setImageWithURL(NSURL(string: "\(AppDelegate.sharedAppDelegate().url)/api/ads/\(adData.id)/image")!)
         }
         cell.adNameLabel.text = adData.title
         cell.adLocationLabel.text = adData.cityName

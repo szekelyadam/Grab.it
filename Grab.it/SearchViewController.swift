@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
         }
         
         // Categories autocomplete text field
-        Alamofire.request(.GET, "http://grabit-szekelyadam.rhcloud.com/api/categories/subcategories").responseJSON { response in
+        Alamofire.request(.GET, "\(AppDelegate.sharedAppDelegate().url)/api/categories/subcategories").responseJSON { response in
             switch response.result {
             case .Success:
                 if let res = response.result.value {

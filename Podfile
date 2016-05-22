@@ -10,5 +10,8 @@ target 'Grab.it' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'Alamofire', '~> 3.3'
     pod 'RETableViewManager', '~> 1.6'
+    pod 'Socket.IO-Client-Swift', '~> 6.1.1'
+    pod 'Chatto', '= 1.0.0'
+    pod 'ChattoAdditions', '= 1.0.0'
 end
 

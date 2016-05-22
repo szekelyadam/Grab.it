@@ -42,7 +42,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.height/2
         profilePictureImageView.clipsToBounds = true
         
-        profilePictureImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)/profile_picture")!)
+        profilePictureImageView.kf_setImageWithURL(NSURL(string: "\(AppDelegate.sharedAppDelegate().url)/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)/profile_picture")!)
         
         imagePicker.delegate = self
         
@@ -101,7 +101,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 "phone": phoneTextField.text!,
             ]
             
-            let url = "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)"
+            let url = "\(AppDelegate.sharedAppDelegate().url)/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)"
             
             Alamofire.request(.PUT, url, parameters: parameters as [String : AnyObject], encoding: .JSON).responseString { response in
                 print(response)

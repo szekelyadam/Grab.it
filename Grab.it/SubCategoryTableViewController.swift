@@ -20,7 +20,7 @@ class SubCategoryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        let url = "http://grabit-szekelyadam.rhcloud.com/api/categories/\(mainCategory!.id)/subcategories"
+        let url = "\(AppDelegate.sharedAppDelegate().url)/api/categories/\(mainCategory!.id)/subcategories"
         Alamofire.request(.GET, url).responseJSON { response in
             switch response.result {
             case .Success:

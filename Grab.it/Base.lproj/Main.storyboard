@@ -343,10 +343,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="V3D-d8-Amb">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="compose" id="kXM-iO-UqP"/>
-                            <barButtonItem systemItem="save" id="TYi-NP-xxW"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="kXM-iO-UqP">
+                            <connections>
+                                <segue destination="cEZ-lx-5zX" kind="show" identifier="StartConversationSegue" id="00P-gM-UDB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -429,10 +430,10 @@
             </objects>
             <point key="canvasLocation" x="1071" y="1951"/>
         </scene>
-        <!--View Controller-->
+        <!--Conversation View Controller-->
         <scene sceneID="NiS-ur-TuE">
             <objects>
-                <viewController id="cEZ-lx-5zX" sceneMemberID="viewController">
+                <viewController id="cEZ-lx-5zX" customClass="ConversationViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Z6-6P-maw"/>
                         <viewControllerLayoutGuide type="bottom" id="oal-zv-2y1"/>
@@ -803,11 +804,18 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit ad" id="ScH-mQ-OKY">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="v8i-MC-JPu">
-                            <connections>
-                                <segue destination="ZPL-iX-rpQ" kind="show" identifier="UpdateAdSegue" id="5rn-qO-ZUM"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="v8i-MC-JPu">
+                                <connections>
+                                    <segue destination="ZPL-iX-rpQ" kind="show" identifier="UpdateAdSegue" id="5rn-qO-ZUM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="cPG-Pg-piX">
+                                <connections>
+                                    <segue destination="ZPL-iX-rpQ" kind="show" identifier="DeleteAdSegue" id="SNi-ck-aI7"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -1219,6 +1227,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="0Ca-FX-szr"/>
-        <segue reference="5rn-qO-ZUM"/>
+        <segue reference="00P-gM-UDB"/>
+        <segue reference="SNi-ck-aI7"/>
     </inferredMetricsTieBreakers>
 </document>

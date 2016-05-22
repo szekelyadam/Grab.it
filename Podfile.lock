@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (3.4.0)
+  - Chatto (1.0.0)
+  - ChattoAdditions (1.0.0):
+    - Chatto
   - FontAwesome.swift (0.7.1)
   - Kingfisher (2.3.1)
   - REFormattedNumberField (1.1.6)
@@ -7,13 +10,17 @@ PODS:
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
+  - Socket.IO-Client-Swift (6.1.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
+  - Chatto (= 1.0.0)
+  - ChattoAdditions (= 1.0.0)
   - FontAwesome.swift
   - Kingfisher (~> 2.3)
   - RETableViewManager (~> 1.6)
+  - Socket.IO-Client-Swift (~> 6.1.1)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -27,11 +34,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Chatto: 531b14bbb7d21dfc50a86fc4ff70a90367171403
+  ChattoAdditions: 27c7b59f4c1b1d51d5f37c7199164982fcc59edf
   FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
   Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
   RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
+  Socket.IO-Client-Swift: 86a3744e1da181a4078a24a632bd3acc34b9f1f5
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

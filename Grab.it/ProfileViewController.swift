@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
         
-        let url = "http://grabit-szekelyadam.rhcloud.com/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)"
+        let url = "\(AppDelegate.sharedAppDelegate().url)/api/users/\(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!)"
         
         profileImageView.kf_setImageWithURL(NSURL(string: "\(url)/profile_picture")!)
         

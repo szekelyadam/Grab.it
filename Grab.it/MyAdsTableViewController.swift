@@ -17,9 +17,9 @@ class MyAdsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = "http://grabit-szekelyadam.rhcloud.com"
+        let url = AppDelegate.sharedAppDelegate().url
 
-        Alamofire.request(.GET, url + "/api/ads", parameters: ["user_id": "0000000198e42f0000000004"]).responseJSON { response in
+        Alamofire.request(.GET, url + "/api/ads", parameters: ["user_id": NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!]).responseJSON { response in
             switch response.result {
             case .Success:
                 self.ads.removeAll()
@@ -32,8 +32,9 @@ class MyAdsTableViewController: UITableViewController {
                         }
                         self.ads.append(ad)
                     }
-                    self.tableView.reloadData()
                 }
+                self.tableView.reloadData()
+                
             case .Failure(let error):
                 print(error)
             }
@@ -61,7 +62,7 @@ class MyAdsTableViewController: UITableViewController {
         let adData = self.ads[indexPath.row]
         
         if adData.imageUrl != "" {
-            cell.adImageView.kf_setImageWithURL(NSURL(string: "http://grabit-szekelyadam.rhcloud.com/api/ads/\(adData.id)/image")!)
+            cell.adImageView.kf_setImageWithURL(NSURL(string: "\(AppDelegate.sharedAppDelegate().url)/api/ads/\(adData.id)/image")!)
         }
 
         cell.adNameLabel.text = adData.title

@@ -62,7 +62,7 @@ class NewAdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         // Categories autocomplete text field
-        Alamofire.request(.GET, "http://grabit-szekelyadam.rhcloud.com/api/categories/subcategories").responseJSON { response in
+        Alamofire.request(.GET, "\(AppDelegate.sharedAppDelegate().url)/api/categories/subcategories").responseJSON { response in
             switch response.result {
             case .Success:
                 if let res = response.result.value {
@@ -137,12 +137,12 @@ class NewAdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     "title": self.nameTextField.text! as AnyObject,
                     "description": self.descriptionTextView.text! as AnyObject,
                     "price": self.priceTextField.text! as AnyObject,
-                    "user_id": "0000000198e42f0000000004" as AnyObject,
+                    "user_id": String(NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!) as AnyObject,
                     "category": self.categoryTextField.text! as AnyObject,
                     "city": self.locationTextField.text! as AnyObject
                 ]
                 
-                Alamofire.request(.POST, "http://grabit-szekelyadam.rhcloud.com/api/ads", parameters: parameters, encoding: .JSON).responseJSON { response in
+                Alamofire.request(.POST, "\(AppDelegate.sharedAppDelegate().url)/api/ads", parameters: parameters, encoding: .JSON).responseJSON { response in
                     switch response.result {
                     case .Success:
                         if self.imageURL != nil {
@@ -152,7 +152,7 @@ class NewAdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                                 print(self.imageURL!)
                                 Alamofire.upload(
                                     .POST,
-                                    "http://grabit-szekelyadam.rhcloud.com/api/ads/\(json["id"].string!)/image",
+                                    "\(AppDelegate.sharedAppDelegate().url)/api/ads/\(json["id"].string!)/image",
                                     multipartFormData: { multipartFormData in
                                         multipartFormData.appendBodyPart(fileURL: self.imageURL!, name: "image")
                                     },
@@ -160,7 +160,11 @@ class NewAdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                                         switch encodingResult {
                                         case .Success(let upload, _, _):
                                             upload.responseString { response in
-                                                return true
+                                                print(response)
+                                                let alert = UIAlertController(title: "Ad created", message: "", preferredStyle: .Alert)
+                                                let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                                                alert.addAction(okAction)
+                                                self.presentViewController(alert, animated: true, completion: nil)
                                             }
                                         case .Failure(let encodingError):
                                             print(encodingError)

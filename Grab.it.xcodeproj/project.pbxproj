@@ -18,6 +18,9 @@
 		214405C01CC589FC00D00992 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214405BF1CC589FC00D00992 /* Ad.swift */; };
 		2159B43C1CD9F2FE00B73254 /* MyAdsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2159B43B1CD9F2FE00B73254 /* MyAdsTableViewController.swift */; };
 		2159B43E1CD9F94F00B73254 /* NewAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2159B43D1CD9F94F00B73254 /* NewAdViewController.swift */; };
+		215D24391CF236A100946826 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D24381CF236A100946826 /* ConversationViewController.swift */; };
+		215D243D1CF24E7400946826 /* LGSimpleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D243B1CF24E7400946826 /* LGSimpleChat.swift */; };
+		215D243E1CF24E7400946826 /* License in Resources */ = {isa = PBXBuildFile; fileRef = 215D243C1CF24E7400946826 /* License */; };
 		218681831CCBA4DA000040D7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681821CCBA4DA000040D7 /* Category.swift */; };
 		218681851CCBA66E000040D7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681841CCBA66E000040D7 /* City.swift */; };
 		218681871CCBA6DE000040D7 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218681861CCBA6DE000040D7 /* County.swift */; };
@@ -51,6 +54,9 @@
 		214405BF1CC589FC00D00992 /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		2159B43B1CD9F2FE00B73254 /* MyAdsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdsTableViewController.swift; sourceTree = "<group>"; };
 		2159B43D1CD9F94F00B73254 /* NewAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAdViewController.swift; sourceTree = "<group>"; };
+		215D24381CF236A100946826 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		215D243B1CF24E7400946826 /* LGSimpleChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGSimpleChat.swift; sourceTree = "<group>"; };
+		215D243C1CF24E7400946826 /* License */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License; sourceTree = "<group>"; };
 		218681821CCBA4DA000040D7 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		218681841CCBA66E000040D7 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		218681861CCBA6DE000040D7 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = County.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 				214405AC1CC5875400D00992 /* ViewController.swift */,
 				214405AE1CC5875400D00992 /* Main.storyboard */,
 				214405B41CC5875400D00992 /* Assets.xcassets */,
+				215D243A1CF24E7400946826 /* LGSimpleChat */,
 				214405B61CC5875400D00992 /* LaunchScreen.storyboard */,
 				214405B91CC5875400D00992 /* Info.plist */,
 				214405B11CC5875400D00992 /* Grab_it.xcdatamodeld */,
@@ -139,8 +146,18 @@
 				21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */,
 				21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */,
 				21A5034D1CEBCFA6006B5576 /* SearchViewController.swift */,
+				215D24381CF236A100946826 /* ConversationViewController.swift */,
 			);
 			path = Grab.it;
+			sourceTree = "<group>";
+		};
+		215D243A1CF24E7400946826 /* LGSimpleChat */ = {
+			isa = PBXGroup;
+			children = (
+				215D243B1CF24E7400946826 /* LGSimpleChat.swift */,
+				215D243C1CF24E7400946826 /* License */,
+			);
+			path = LGSimpleChat;
 			sourceTree = "<group>";
 		};
 		8D0B2F87C85EE7F5FBD1CBAA /* Frameworks */ = {
@@ -215,6 +232,7 @@
 				21B299651CD9401E00A9DDF0 /* Cities.json in Resources */,
 				214405B81CC5875400D00992 /* LaunchScreen.storyboard in Resources */,
 				214405B51CC5875400D00992 /* Assets.xcassets in Resources */,
+				215D243E1CF24E7400946826 /* License in Resources */,
 				214405B01CC5875400D00992 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +302,7 @@
 				2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */,
 				21E472F91CDFAA15004161E7 /* EditProfileViewController.swift in Sources */,
 				218681871CCBA6DE000040D7 /* County.swift in Sources */,
+				215D243D1CF24E7400946826 /* LGSimpleChat.swift in Sources */,
 				2159B43C1CD9F2FE00B73254 /* MyAdsTableViewController.swift in Sources */,
 				218681851CCBA66E000040D7 /* City.swift in Sources */,
 				21A5034E1CEBCFA6006B5576 /* SearchViewController.swift in Sources */,
@@ -296,6 +315,7 @@
 				21E472FB1CDFAF49004161E7 /* ProfileViewController.swift in Sources */,
 				214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */,
 				218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */,
+				215D24391CF236A100946826 /* ConversationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
