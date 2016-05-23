@@ -11,10 +11,10 @@ import SocketIOClientSwift
 
 class ConversationViewController: UIViewController, LGChatControllerDelegate {
     
-    var receiverId: String = "asds"
+    var receiverId: String = ""
     var messages = [LGChatMessage]()
     let chatController = LGChatController()
-    var socket = SocketIOClient(socketURL: NSURL(string: AppDelegate.sharedAppDelegate().url)!, options: [.Log(true), .ForcePolling(true)])
+    var socket = SocketIOClient(socketURL: NSURL(string: AppDelegate.sharedAppDelegate().url)!, options: [.Log(true)])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,10 @@ class ConversationViewController: UIViewController, LGChatControllerDelegate {
         }
         
         socket.on("message") {data, ack in
-            print(data)
+            if (data[0]["to"]! as! String) == NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")! as! String {
+                let msg = LGChatMessage(content: data[0]["msg"]! as! String, sentBy: .Opponent)
+                self.chatController.addNewMessage(msg)
+            }
         }
         
         socket.connect()
@@ -50,7 +53,7 @@ class ConversationViewController: UIViewController, LGChatControllerDelegate {
     
     func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {
         print("Did Add Message: \(message.content)")
-        self.messages.append(message)
+        // self.messages.append(message)
         socket.emit("message", [NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")!, receiverId, message.content])
     }
     
