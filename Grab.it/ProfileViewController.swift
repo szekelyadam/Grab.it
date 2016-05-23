@@ -36,9 +36,17 @@ class ProfileViewController: UIViewController {
             case .Success:
                 if let res = response.result.value {
                     let json = JSON(res)
-                    self.nameLabel.text = json["name"].string!
-                    self.emailLabel.text = json["email"].string!
-                    self.phoneLabel.text = json["phone"].string!
+                    if json["name"] {
+                        self.nameLabel.text = json["name"].string!
+                    }
+                    
+                    if json["email"] {
+                        self.emailLabel.text = json["email"].string!
+                    }
+                    
+                    if json["phone"] {
+                        self.phoneLabel.text = json["phone"].string!
+                    }
                 }
             case .Failure(let error):
                 print(error)

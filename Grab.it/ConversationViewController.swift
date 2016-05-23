@@ -8,10 +8,13 @@
 
 import UIKit
 import SocketIOClientSwift
+import Alamofire
+import SwiftyJSON
 
 class ConversationViewController: UIViewController, LGChatControllerDelegate {
     
     var receiverId: String = ""
+    var conversationId: String = ""
     var messages = [LGChatMessage]()
     let chatController = LGChatController()
     var socket = SocketIOClient(socketURL: NSURL(string: AppDelegate.sharedAppDelegate().url)!, options: [.Log(true)])
@@ -19,8 +22,6 @@ class ConversationViewController: UIViewController, LGChatControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         launchChatController()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,9 +47,37 @@ class ConversationViewController: UIViewController, LGChatControllerDelegate {
     }
     
     func launchChatController() {
-        chatController.messages = self.messages
-        chatController.delegate = self
-        self.navigationController?.pushViewController(chatController, animated: true)
+        if self.conversationId != "" {
+            print("\(AppDelegate.sharedAppDelegate().url)/api/conversations/\(self.conversationId)/messages")
+            Alamofire.request(.GET, "\(AppDelegate.sharedAppDelegate().url)/api/conversations/\(self.conversationId)/messages").responseJSON { response in
+                switch response.result {
+                case .Success:
+                    if let res = response.result.value {
+                        print(res)
+                        let json = JSON(res)
+                        print(json)
+                        for (_,subJson):(String, JSON) in json {
+                            if subJson["sender_id"].string! == NSUserDefaults.standardUserDefaults().objectForKey("UserUUID")! as! String {
+                                let msg = LGChatMessage(content: subJson["message"].string!, sentBy: .User)
+                                self.messages.append(msg)
+                            } else {
+                                let msg = LGChatMessage(content: subJson["message"].string!, sentBy: .Opponent)
+                                self.messages.append(msg)
+                            }
+                        }
+                        self.chatController.messages = self.messages
+                        self.chatController.delegate = self
+                        self.navigationController?.pushViewController(self.chatController, animated: false)
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
+            }
+        } else {
+            chatController.messages = [LGChatMessage]()
+            chatController.delegate = self
+            self.navigationController?.pushViewController(chatController, animated: false)
+        }
     }
     
     func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {

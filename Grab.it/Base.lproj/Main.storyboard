@@ -366,17 +366,17 @@
         <!--Messages-->
         <scene sceneID="eHo-dL-9gF">
             <objects>
-                <tableViewController id="Mz7-1z-wgS" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="qSc-z3-Ys8">
+                <tableViewController id="Mz7-1z-wgS" customClass="ConversationsTableViewController" customModule="Grab_it" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="qSc-z3-Ys8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="hMF-G2-HVg">
-                                <rect key="frame" x="0.0" y="92" width="320" height="85"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationTableViewCell" rowHeight="59" id="hMF-G2-HVg" customClass="ConversationTableViewCell" customModule="Grab_it" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hMF-G2-HVg" id="p3S-XG-SfW">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtv-s8-phI">
@@ -388,14 +388,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utj-8T-r2X">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPl-GR-zyR">
                                             <rect key="frame" x="8" y="31" width="59" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPl-GR-zyR">
-                                            <rect key="frame" x="8" y="54" width="59" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -405,16 +399,14 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="Vtv-s8-phI" secondAttribute="trailing" id="0q5-yy-oYO"/>
                                         <constraint firstItem="Vtv-s8-phI" firstAttribute="leading" secondItem="p3S-XG-SfW" secondAttribute="leadingMargin" id="7NH-ph-IM0"/>
                                         <constraint firstItem="Vtv-s8-phI" firstAttribute="top" secondItem="p3S-XG-SfW" secondAttribute="topMargin" id="Jjs-2h-GEp"/>
-                                        <constraint firstItem="oPl-GR-zyR" firstAttribute="top" secondItem="Utj-8T-r2X" secondAttribute="bottom" constant="2" id="WTM-o1-DoR"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Utj-8T-r2X" secondAttribute="trailing" id="eVq-2J-fCX"/>
-                                        <constraint firstItem="Utj-8T-r2X" firstAttribute="leading" secondItem="p3S-XG-SfW" secondAttribute="leadingMargin" id="lgG-IU-gdF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="oPl-GR-zyR" secondAttribute="trailing" id="nvi-4z-e42"/>
-                                        <constraint firstItem="Utj-8T-r2X" firstAttribute="top" secondItem="Vtv-s8-phI" secondAttribute="bottom" constant="2" id="qz2-JK-B46"/>
                                         <constraint firstItem="oPl-GR-zyR" firstAttribute="leading" secondItem="p3S-XG-SfW" secondAttribute="leadingMargin" id="t4g-ff-i3x"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="cEZ-lx-5zX" kind="show" id="jWC-L0-I05"/>
+                                    <outlet property="convDateLabel" destination="oPl-GR-zyR" id="HgF-Ha-KNS"/>
+                                    <outlet property="opponentNameLabel" destination="Vtv-s8-phI" id="YJU-Yr-kWM"/>
+                                    <segue destination="cEZ-lx-5zX" kind="show" identifier="ShowConversationSegue" id="jWC-L0-I05"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1226,8 +1218,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0Ca-FX-szr"/>
-        <segue reference="00P-gM-UDB"/>
+        <segue reference="74D-26-jXY"/>
+        <segue reference="jWC-L0-I05"/>
         <segue reference="SNi-ck-aI7"/>
     </inferredMetricsTieBreakers>
 </document>

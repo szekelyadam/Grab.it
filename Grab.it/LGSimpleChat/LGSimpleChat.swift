@@ -389,9 +389,15 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
     
     func addNewMessage(message: LGChatMessage) {
         messages += [message]
-        tableView.reloadData()
+        self.tableView.reloadData()
         self.scrollToBottom()
         self.delegate?.chatController?(self, didAddNewMessage: message)
+    }
+    
+    func reloadMessages(messages: [LGChatMessage]) {
+        self.messages = messages
+        self.tableView.reloadData()
+        self.scrollToBottom()
     }
     
     // MARK: SwiftChatInputDelegate

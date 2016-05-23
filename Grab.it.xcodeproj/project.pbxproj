@@ -33,6 +33,9 @@
 		21A5034E1CEBCFA6006B5576 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5034D1CEBCFA6006B5576 /* SearchViewController.swift */; };
 		21B299651CD9401E00A9DDF0 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 21B299641CD9401E00A9DDF0 /* Cities.json */; };
 		21CB1BA51CCCED8F00FE6A60 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */; };
+		21E32BB21CF3853300F842FA /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E32BB11CF3853300F842FA /* ConversationsTableViewController.swift */; };
+		21E32BB41CF3883200F842FA /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E32BB31CF3883200F842FA /* Conversation.swift */; };
+		21E32BB61CF38A1D00F842FA /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E32BB51CF38A1D00F842FA /* ConversationTableViewCell.swift */; };
 		21E472F91CDFAA15004161E7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */; };
 		21E472FB1CDFAF49004161E7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */; };
 		21FE190D1CDF77F000B8722A /* EditAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE190C1CDF77F000B8722A /* EditAdViewController.swift */; };
@@ -69,6 +72,9 @@
 		21A5034D1CEBCFA6006B5576 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		21B299641CD9401E00A9DDF0 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		21CB1BA41CCCED8F00FE6A60 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		21E32BB11CF3853300F842FA /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
+		21E32BB31CF3883200F842FA /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		21E32BB51CF38A1D00F842FA /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		21E472F81CDFAA15004161E7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		21FE190C1CDF77F000B8722A /* EditAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAdViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,9 @@
 				21E472FA1CDFAF49004161E7 /* ProfileViewController.swift */,
 				21A5034D1CEBCFA6006B5576 /* SearchViewController.swift */,
 				215D24381CF236A100946826 /* ConversationViewController.swift */,
+				21E32BB11CF3853300F842FA /* ConversationsTableViewController.swift */,
+				21E32BB31CF3883200F842FA /* Conversation.swift */,
+				21E32BB51CF38A1D00F842FA /* ConversationTableViewCell.swift */,
 			);
 			path = Grab.it;
 			sourceTree = "<group>";
@@ -302,7 +311,9 @@
 				2186818D1CCBDEF2000040D7 /* BrowseTableViewController.swift in Sources */,
 				21E472F91CDFAA15004161E7 /* EditProfileViewController.swift in Sources */,
 				218681871CCBA6DE000040D7 /* County.swift in Sources */,
+				21E32BB21CF3853300F842FA /* ConversationsTableViewController.swift in Sources */,
 				215D243D1CF24E7400946826 /* LGSimpleChat.swift in Sources */,
+				21E32BB41CF3883200F842FA /* Conversation.swift in Sources */,
 				2159B43C1CD9F2FE00B73254 /* MyAdsTableViewController.swift in Sources */,
 				218681851CCBA66E000040D7 /* City.swift in Sources */,
 				21A5034E1CEBCFA6006B5576 /* SearchViewController.swift in Sources */,
@@ -316,6 +327,7 @@
 				214405AB1CC5875400D00992 /* AppDelegate.swift in Sources */,
 				218681931CCBE541000040D7 /* CategoryTableViewController.swift in Sources */,
 				215D24391CF236A100946826 /* ConversationViewController.swift in Sources */,
+				21E32BB61CF38A1D00F842FA /* ConversationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
