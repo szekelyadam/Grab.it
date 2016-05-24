@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Alamofire
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        
+        
+        UINavigationBar.appearance().barTintColor = FlatSkyBlueDark();
+        UINavigationBar.appearance().tintColor = FlatWhite();
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        UITabBar.appearance().barTintColor = FlatSkyBlue();
+        UITabBar.appearance().tintColor = FlatWhiteDark();
+        
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: FlatWhite()], forState:.Selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: FlatWhiteDark()], forState:.Normal)
+        
         
         return true
     }

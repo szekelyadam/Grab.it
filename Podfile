@@ -13,5 +13,6 @@ target 'Grab.it' do
     pod 'Socket.IO-Client-Swift', '~> 6.1.1'
     pod 'Chatto', '= 1.0.0'
     pod 'ChattoAdditions', '= 1.0.0'
+    pod 'ChameleonFramework/Swift'
 end
 

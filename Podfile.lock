@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (3.4.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Chatto (1.0.0)
   - ChattoAdditions (1.0.0):
     - Chatto
@@ -15,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
+  - ChameleonFramework/Swift
   - Chatto (= 1.0.0)
   - ChattoAdditions (= 1.0.0)
   - FontAwesome.swift
@@ -34,6 +38,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Chatto: 531b14bbb7d21dfc50a86fc4ff70a90367171403
   ChattoAdditions: 27c7b59f4c1b1d51d5f37c7199164982fcc59edf
   FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
